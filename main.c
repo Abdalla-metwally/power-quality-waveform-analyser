@@ -33,6 +33,14 @@ int main(int argc, char *argv[]) {
     printf("File loaded successfully.\n");
     printf("Rows loaded: %d\n", row_count);
 
+    double rms_A = compute_rms(samples, row_count, 'A');
+    double rms_B = compute_rms(samples, row_count, 'B');
+    double rms_C = compute_rms(samples, row_count, 'C');
+
+    printf("RMS Phase A: %.2f V\n", rms_A);
+    printf("RMS Phase B: %.2f V\n", rms_B);
+    printf("RMS Phase C: %.2f V\n", rms_C);
+
     free(samples);
 
     return 0;

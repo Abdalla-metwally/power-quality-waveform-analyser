@@ -1,6 +1,7 @@
 //
 // Created by Abdul on 21/04/2026.
 //
+#include <math.h>
 #include "waveform.h"
 
 double sum_phaseA(waveformsample *samples, int count) {
@@ -11,4 +12,25 @@ double sum_phaseA(waveformsample *samples, int count) {
     }
 
     return sum;
+}
+
+double get_phase_voltage(waveformsample *sample, char phase) {
+    if (phase == 'A') {
+        return sample->phase_A_voltage;
+    } else if (phase == 'B') {
+        return sample->phase_B_voltage;
+    } else {
+        return sample->phase_C_voltage;
+    }
+}
+
+double compute_rms(waveformsample *samples, int count, char phase) {
+    double sum_squares = 0.0;
+
+    for (int i = 0; i < count; i++) {
+        double voltage = get_phase_voltage(samples + i, phase);
+        sum_squares += voltage * voltage;
+    }
+
+    return sqrt(sum_squares / count);
 }
