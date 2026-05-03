@@ -40,5 +40,17 @@ int main(void) {
     printf("DC B expected 6.00, got %.2f\n", dc_B);
     printf("DC C expected 6.50, got %.2f\n", dc_C);
 
+
+    waveformsample clip_test[2] = {
+            {0, 19, 0, 0, 0,0,0,0},   // exceeds 324.9 → clipped
+            {0, 350, 0, 0, 0,0,0,0}
+    };
+
+    int clip_test_A = detect_clipping(clip_test, 1, 'A');
+    int clip_test_B = detect_clipping(clip_test, 2, 'A');
+    printf("\n");
+    printf("Clipping test first array expected 0, got %d\n", clip_test_A);
+    printf("Clipping test second array expected 1, got %d\n", clip_test_B);
+
     return 0;
 }
