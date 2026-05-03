@@ -63,6 +63,16 @@ int main(int argc, char *argv[]) {
     printf("DC offset Phase B: %.2f V\n", dc_B);
     printf("DC offset Phase C: %.2f V\n", dc_C);
 
+
+    int clip_A = detect_clipping(samples, row_count, 'A');
+    int clip_B = detect_clipping(samples, row_count, 'B');
+    int clip_C = detect_clipping(samples, row_count, 'C');
+
+    printf("\nClipping Detection:\n");
+    printf("Phase A: %s\n", clip_A ? "CLIPPING DETECTED" : "OK");
+    printf("Phase B: %s\n", clip_B ? "CLIPPING DETECTED" : "OK");
+    printf("Phase C: %s\n", clip_C ? "CLIPPING DETECTED" : "OK");
+
     free(samples);
 
     return 0;

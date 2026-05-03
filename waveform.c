@@ -64,3 +64,18 @@ double compute_dc_offset(waveformsample *samples, int count, char phase) {
 
     return sum / count;
 }
+
+int detect_clipping(waveformsample *samples, int count, char phase) {
+    int clipped = 0;
+
+    for (int i = 0; i < count; i++) {
+        double value = get_phase_voltage(samples + i, phase);
+
+        if (fabs(value) >= 324.9) {
+            clipped = 1;
+            break;  // no need to continue once found
+        }
+    }
+
+    return clipped;
+}

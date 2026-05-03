@@ -23,5 +23,6 @@ double get_phase_voltage(waveformsample *sample, char phase);
 double compute_rms(waveformsample *samples, int count, char phase);
 double compute_peak_to_peak(waveformsample *samples, int count, char phase);
 double compute_dc_offset(waveformsample *samples, int count, char phase);
+int detect_clipping(waveformsample *samples, int count, char phase);
 
 #endif //COURSEWORK_WAVEFORM_H
