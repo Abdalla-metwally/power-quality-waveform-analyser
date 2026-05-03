@@ -34,3 +34,22 @@ double compute_rms(waveformsample *samples, int count, char phase) {
 
     return sqrt(sum_squares / count);
 }
+
+double compute_peak_to_peak(waveformsample *samples, int count, char phase) {
+    double min = get_phase_voltage(samples, phase);
+    double max = get_phase_voltage(samples, phase);
+
+    for (int i = 1; i < count; i++) {
+        double voltage = get_phase_voltage(samples + i, phase);
+
+        if (voltage < min) {
+            min = voltage;
+        }
+
+        if (voltage > max) {
+            max = voltage;
+        }
+    }
+
+    return max - min;
+}

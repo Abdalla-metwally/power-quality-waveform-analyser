@@ -41,6 +41,17 @@ int main(int argc, char *argv[]) {
     printf("RMS Phase B: %.2f V\n", rms_B);
     printf("RMS Phase C: %.2f V\n", rms_C);
 
+
+    double p2p_A = compute_peak_to_peak(samples, row_count, 'A');
+    double p2p_B = compute_peak_to_peak(samples, row_count, 'B');
+    double p2p_C = compute_peak_to_peak(samples, row_count, 'C');
+
+    printf("\n");
+
+    printf("P2P Phase A: %.2f V\n", p2p_A);
+    printf("P2P Phase B: %.2f V\n", p2p_B);
+    printf("P2P Phase C: %.2f V\n", p2p_C);
+
     free(samples);
 
     return 0;
