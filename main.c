@@ -52,6 +52,17 @@ int main(int argc, char *argv[]) {
     printf("P2P Phase B: %.2f V\n", p2p_B);
     printf("P2P Phase C: %.2f V\n", p2p_C);
 
+
+    double dc_A = compute_dc_offset(samples, row_count, 'A');
+    double dc_B = compute_dc_offset(samples, row_count, 'B');
+    double dc_C = compute_dc_offset(samples, row_count, 'C');
+
+    printf("\n");
+
+    printf("DC offset Phase A: %.2f V\n", dc_A);
+    printf("DC offset Phase B: %.2f V\n", dc_B);
+    printf("DC offset Phase C: %.2f V\n", dc_C);
+
     free(samples);
 
     return 0;
