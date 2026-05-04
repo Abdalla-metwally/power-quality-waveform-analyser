@@ -1,0 +1,48 @@
+Power Quality Analysis Report
+=============================
+
+Input data summary:
+- Dataset: 3-phase AC waveform data
+- Window: approximately 200 ms
+- Nominal voltage: 230 V RMS
+- Tolerance band: 207 V to 253 V
+
+RMS Voltage:
+Phase A: 229.81 V
+Phase B: 229.81 V
+Phase C: 229.81 V
+
+Peak-to-Peak Voltage:
+Phase A: 650.00 V
+Phase B: 649.86 V
+Phase C: 649.86 V
+
+DC Offset:
+Phase A: -0.00 V
+Phase B: 0.00 V
+Phase C: -0.00 V
+
+Clipping Detection:
+Phase A: CLIPPING DETECTED
+Phase B: CLIPPING DETECTED
+Phase C: CLIPPING DETECTED
+
+Clipped Sample Count:
+Phase A: 20 samples
+Phase B: 20 samples
+Phase C: 20 samples
+
+Tolerance Check:
+Phase A: WITHIN LIMIT
+Phase B: WITHIN LIMIT
+Phase C: WITHIN LIMIT
+
+Additional Measurements:
+Mean frequency over the 200 ms window: 50.027 Hz
+Mean power factor: 0.956
+Mean THD: 2.09 %
+
+Overall assessment:
+- RMS values are compared against the 230 V nominal supply.
+- Tolerance compliance is checked using the 207 V to 253 V range.
+- Clipping is flagged when |voltage| >= 324.9 V.
