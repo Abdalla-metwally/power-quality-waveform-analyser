@@ -73,6 +73,15 @@ int main(int argc, char *argv[]) {
     printf("Phase B: %s\n", clip_B ? "CLIPPING DETECTED" : "OK");
     printf("Phase C: %s\n", clip_C ? "CLIPPING DETECTED" : "OK");
 
+    int tol_A = check_tolerance(rms_A);
+    int tol_B = check_tolerance(rms_B);
+    int tol_C = check_tolerance(rms_C);
+
+    printf("\nTolerance Check:\n");
+    printf("Phase A: %s\n", tol_A ? "WITHIN LIMIT" : "OUT OF LIMIT");
+    printf("Phase B: %s\n", tol_B ? "WITHIN LIMIT" : "OUT OF LIMIT");
+    printf("Phase C: %s\n", tol_C ? "WITHIN LIMIT" : "OUT OF LIMIT");
+
     free(samples);
 
     return 0;
