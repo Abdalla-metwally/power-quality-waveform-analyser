@@ -27,7 +27,7 @@ The program also writes the calculated results to `results.txt`.
 - `test.c` - simple unit testing file
 - `CMakeLists.txt` - CLion/CMake build file
 
-## GitHub Repository
+## GitHub Repository link
 https://github.com/Abdalla-metwally/power-quality-waveform-analyser.git
 
 ## How to run it in CLion
@@ -36,7 +36,5 @@ https://github.com/Abdalla-metwally/power-quality-waveform-analyser.git
 2. Build the project.
 3. Go to Run/Edit Configurations.
 4. Add this program argument:
-
-```text
 power_quality_log.csv
 
