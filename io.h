@@ -10,5 +10,12 @@
 int count_rows(const char *filename);
 int load_csv(const char *filename, waveformsample *samples, int row_count);
 
+
+int write_results(const char *filename,
+                  double rms_A, double rms_B, double rms_C,
+                  double p2p_A, double p2p_B, double p2p_C,
+                  double dc_A, double dc_B, double dc_C,
+                  int clip_A, int clip_B, int clip_C,
+                  int tol_A, int tol_B, int tol_C);
 #endif //COURSEWORK_IO_H
 

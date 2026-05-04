@@ -82,6 +82,15 @@ int main(int argc, char *argv[]) {
     printf("Phase B: %s\n", tol_B ? "WITHIN LIMIT" : "OUT OF LIMIT");
     printf("Phase C: %s\n", tol_C ? "WITHIN LIMIT" : "OUT OF LIMIT");
 
+    write_results("results.txt",
+                  rms_A, rms_B, rms_C,
+                  p2p_A, p2p_B, p2p_C,
+                  dc_A, dc_B, dc_C,
+                  clip_A, clip_B, clip_C,
+                  tol_A, tol_B, tol_C);
+
+    printf("\nResults written to results.txt\n");
+
     free(samples);
 
     return 0;
