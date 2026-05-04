@@ -87,3 +87,47 @@ int check_tolerance(double rms) {
         return 0;  // out of tolerance
     }
 }
+
+int count_clipped_samples(waveformsample *samples, int count, char phase) {
+    int clipped_count = 0;
+
+    for (int i = 0; i < count; i++) {
+        double value = get_phase_voltage(samples + i, phase);
+
+        if (fabs(value) >= 324.9) {
+            clipped_count++;
+        }
+    }
+
+    return clipped_count;
+}
+
+double compute_mean_frequency(waveformsample *samples, int count) {
+    double sum = 0;
+
+    for (int i = 0; i < count; i++) {
+        sum += (samples + i)->frequency;
+    }
+
+    return sum / count;
+}
+
+double compute_mean_power_factor(waveformsample *samples, int count) {
+    double sum = 0;
+
+    for (int i = 0; i < count; i++) {
+        sum += (samples + i)->power_factor;
+    }
+
+    return sum / count;
+}
+
+double compute_mean_thd(waveformsample *samples, int count) {
+    double sum = 0;
+
+    for (int i = 0; i < count; i++) {
+        sum += (samples + i)->thd_percent;
+    }
+
+    return sum / count;
+}

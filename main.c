@@ -82,12 +82,34 @@ int main(int argc, char *argv[]) {
     printf("Phase B: %s\n", tol_B ? "WITHIN LIMIT" : "OUT OF LIMIT");
     printf("Phase C: %s\n", tol_C ? "WITHIN LIMIT" : "OUT OF LIMIT");
 
+    int clipped_count_A = count_clipped_samples(samples, row_count, 'A');
+    int clipped_count_B = count_clipped_samples(samples, row_count, 'B');
+    int clipped_count_C = count_clipped_samples(samples, row_count, 'C');
+
+    double mean_frequency = compute_mean_frequency(samples, row_count);
+    double mean_power_factor = compute_mean_power_factor(samples, row_count);
+    double mean_thd = compute_mean_thd(samples, row_count);
+
+    printf("\nClipped Sample Count:\n");
+    printf("Phase A: %d samples\n", clipped_count_A);
+    printf("Phase B: %d samples\n", clipped_count_B);
+    printf("Phase C: %d samples\n", clipped_count_C);
+
+    printf("\nAdditional Measurements:\n");
+    printf("Mean frequency: %.3f Hz\n", mean_frequency);
+    printf("Mean power factor: %.3f\n", mean_power_factor);
+    printf("Mean THD: %.2f %%\n", mean_thd);
+
     write_results("results.txt",
                   rms_A, rms_B, rms_C,
                   p2p_A, p2p_B, p2p_C,
                   dc_A, dc_B, dc_C,
                   clip_A, clip_B, clip_C,
-                  tol_A, tol_B, tol_C);
+                  tol_A, tol_B, tol_C,
+                  clipped_count_A, clipped_count_B, clipped_count_C,
+                  mean_frequency,
+                  mean_power_factor,
+                  mean_thd);
 
     printf("\nResults written to results.txt\n");
 

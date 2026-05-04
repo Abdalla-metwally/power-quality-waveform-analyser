@@ -16,6 +16,10 @@ int write_results(const char *filename,
                   double p2p_A, double p2p_B, double p2p_C,
                   double dc_A, double dc_B, double dc_C,
                   int clip_A, int clip_B, int clip_C,
-                  int tol_A, int tol_B, int tol_C);
+                  int tol_A, int tol_B, int tol_C,
+                  int clipped_count_A, int clipped_count_B, int clipped_count_C,
+                  double mean_frequency,
+                  double mean_power_factor,
+                  double mean_thd);
 #endif //COURSEWORK_IO_H
 

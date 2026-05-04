@@ -25,5 +25,9 @@ double compute_peak_to_peak(waveformsample *samples, int count, char phase);
 double compute_dc_offset(waveformsample *samples, int count, char phase);
 int detect_clipping(waveformsample *samples, int count, char phase);
 int check_tolerance(double rms);
+int count_clipped_samples(waveformsample *samples, int count, char phase);
+double compute_mean_frequency(waveformsample *samples, int count);
+double compute_mean_power_factor(waveformsample *samples, int count);
+double compute_mean_thd(waveformsample *samples, int count);
 
 #endif //COURSEWORK_WAVEFORM_H
