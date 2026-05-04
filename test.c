@@ -52,5 +52,10 @@ int main(void) {
     printf("Clipping test first array expected 0, got %d\n", clip_test_A);
     printf("Clipping test second array expected 1, got %d\n", clip_test_B);
 
+    printf("\n");//suppose our RMS example is 230 V, so 10% range is 207-253
+    printf("Tolerance test 230V expected 1, got %d\n", check_tolerance(230));
+    printf("Tolerance test 250V expected 1, got %d\n", check_tolerance(250));
+    printf("Tolerance test 180V expected 0, got %d\n", check_tolerance(180));
+
     return 0;
 }
